@@ -1,0 +1,29 @@
+repos:
+  # 1. Standard pre-commit hooks for file quality
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+
+  # 2. Ruff Linter & Formatter
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      # Run the linter and auto-fix simple issues
+      - id: ruff
+        args: [--fix]
+      # Run the code formatter
+      - id: ruff-format
+
+  # 3. Local pytest runner
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: python -m pytest
+        language: system
+        types: [python]
+        pass_filenames: false

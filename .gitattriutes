@@ -1,0 +1,14 @@
+# Auto-detect text files and normalize line endings to LF on commit
+* text=auto eol=lf
+
+# Explicitly ensure binary files are untouched
+*.png binary
+*.jpg binary
+*.ico binary
+*.so binary
+*.dll binary
+*.exe binary
+
+# Mark documentation / lockfiles
+pyproject.toml text eol=lf
+*.md text eol=lf
